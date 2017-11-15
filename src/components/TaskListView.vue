@@ -1,30 +1,15 @@
 <template>
   <div class="task-list">
-    <h1>TaskList</h1>
-    <ul>
-      <task v-for="task in tasks" v-bind:key="task.title" v-bind:task="task"></task>
-    </ul>
+    <task v-for="task in tasks" :key="task.id" :task="task"/>
   </div>
 </template>
 
 <script>
-
-let TaskView = {
-  name: 'TaskView',
-  template: '<li>{{ task.title }}</li>',
-  props: ['task']
-}
+import TaskView from './TaskView'
 
 export default {
   name: 'TaskList',
-  data () {
-    return {}
-  },
-  computed: {
-    tasks () {
-      return this.$store.state.taskList
-    }
-  },
+  props: ['tasks'],
   components: {
     'task': TaskView
   }
@@ -33,7 +18,8 @@ export default {
 
 <style lang="sass" scoped>
 .task-list
-  ul
-    list-style: none
-    font: 18px "Noto Serif"
+  display: table
+  width: 30vw
+  margin: auto auto
+  font: 18px "Noto Serif"
 </style>

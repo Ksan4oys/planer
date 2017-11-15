@@ -122,7 +122,7 @@ export default {
 
     return {
       year: date.get('year').toString(),
-      month: date.get('month').toString(),
+      month: (date.get('month') + 1).toString(),
       day: date.get('date').toString(),
       hours: date.get('hours').toString(),
       minutes: date.get('minutes').toString(),
@@ -134,7 +134,7 @@ export default {
     createTask () {
       let date = moment({
         year: this.year,
-        month: this.month,
+        month: this.month - 1,
         day: this.day,
         hours: this.hours,
         minutes: this.minutes
@@ -146,7 +146,8 @@ export default {
         complete: false
       }
       this.$store.commit('addTask', task)
-      this.$router.push({path: '/today'})
+      console.log(date, date.format('YY-MM-DD'))
+      this.$router.push({path: `/day/${date.format('YY-MM-DD')}`})
     }
   }
 }

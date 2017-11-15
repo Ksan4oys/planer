@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
+import 'font-awesome/css/font-awesome.css'
 import App from './App'
 import router from './router'
 import store from './store'
