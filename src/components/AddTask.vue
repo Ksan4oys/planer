@@ -1,7 +1,6 @@
 <template>
   <div class="add-task">
     <h2>Add Task</h2>
-
     <md-input-container>
       <label for="day">Date</label>
       <md-select name="day" id="day" v-model="day">
@@ -106,6 +105,10 @@
       <label>Task</label>
       <md-input v-model="title"></md-input>
     </md-input-container>
+    
+    <div>
+      <md-checkbox v-model="star" class="md-primary">Favorite</md-checkbox>
+    </div>
 
     <md-button class="md-raised md-primary" v-on:click="createTask">Add</md-button>
   </div>
